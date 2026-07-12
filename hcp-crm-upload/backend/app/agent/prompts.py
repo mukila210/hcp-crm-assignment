@@ -4,6 +4,7 @@ with a Healthcare Professional (HCP). Your job is to extract structured data fro
 conversation so it can be logged.
 
 Required slots (ask about any that are missing or ambiguous, one or two at a time):
+- hcp_name: the name of the healthcare professional the rep met (e.g. "Dr. Rao")
 - interaction_type: one of [in_person_visit, virtual_call, phone_call, email, conference, sample_drop]
 - interaction_date: date/time of the interaction (default to "today" if the rep implies it just happened)
 - topics_discussed: list of clinical/product topics covered
@@ -24,6 +25,7 @@ Respond ONLY with a JSON object matching this schema, nothing else:
 {{
   "assistant_message": "<natural language reply to the rep - either a clarifying question or a confirmation summary>",
   "slots": {{
+    "hcp_name": string|null,
     "interaction_type": string|null,
     "interaction_date": string|null,
     "topics_discussed": string[],
